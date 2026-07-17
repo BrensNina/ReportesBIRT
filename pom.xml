@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.flotasys</groupId>
+  <artifactId>reportes-birt</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+
+  <properties>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <!-- Motor BIRT completo (engine + emitters PDF/HTML/Excel) empaquetado como jars planos,
+         sin necesidad de OSGi/Eclipse. -->
+    <dependency>
+      <groupId>ch.reportingsoft.birt</groupId>
+      <artifactId>birt-runtime-bundle</artifactId>
+      <version>4.20.0</version>
+      <type>pom</type>
+    </dependency>
+
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.7.4</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>reportes-birt</finalName>
+    <plugins>
+      <!-- BIRT descubre sus plugins (OSGi-lite) escaneando plugin.xml en cada jar del classpath.
+           Un uber-jar fusionado pisa los plugin.xml que comparten ruta entre jars distintos y
+           el motor deja de encontrar sus propias extensiones (ver commit: cambio de shade a
+           classpath con jars sueltos). Por eso copiamos las dependencias sueltas en vez de
+           fusionarlas. -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.8.1</version>
+        <executions>
+          <execution>
+            <id>copy-dependencies</id>
+            <phase>package</phase>
+            <goals><goal>copy-dependencies</goal></goals>
+            <configuration>
+              <outputDirectory>${project.build.directory}/lib</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">FleetSys</property>
+    <property name="units">in</property>
+    <property name="imageDPI">96</property>
+
+    <parameters>
+        <scalar-parameter name="pMesAnio" id="200">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="paramType">simple</property>
+            <text-property name="promptText">Mes (YYYY-MM)</text-property>
+            <property name="controlType">text-box</property>
+            <expression name="defaultValue" type="constant">2024-05</expression>
+        </scalar-parameter>
+    </parameters>
+
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="FlotasysDB" id="10">
+            <property name="odaDriverClass">org.postgresql.Driver</property>
+            <property name="odaURL">jdbc:postgresql://localhost:5432/flotasys</property>
+            <property name="odaUser">postgres</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">Q0FNQklBTUU=</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="CostoOperacionalDS" id="20">
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">mesAnio</property>
+                    <property name="paramName">mesAnio</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <list-property name="resultSet">
+                <structure><property name="position">1</property><property name="name">placa</property><property name="nativeDataType">12</property><property name="dataType">string</property></structure>
+                <structure><property name="position">2</property><property name="name">codigoPatrimonio</property><property name="nativeDataType">12</property><property name="dataType">string</property></structure>
+                <structure><property name="position">3</property><property name="name">categoria</property><property name="nativeDataType">12</property><property name="dataType">string</property></structure>
+                <structure><property name="position">4</property><property name="name">mesAnio</property><property name="nativeDataType">12</property><property name="dataType">string</property></structure>
+                <structure><property name="position">5</property><property name="name">diasUtiles</property><property name="nativeDataType">4</property><property name="dataType">integer</property></structure>
+                <structure><property name="position">6</property><property name="name">km</property><property name="nativeDataType">8</property><property name="dataType">decimal</property></structure>
+                <structure><property name="position">7</property><property name="name">horas</property><property name="nativeDataType">8</property><property name="dataType">decimal</property></structure>
+                <structure><property name="position">8</property><property name="name">combustibleGalones</property><property name="nativeDataType">8</property><property name="dataType">decimal</property></structure>
+                <structure><property name="position">9</property><property name="name">combustibleCosto</property><property name="nativeDataType">3</property><property name="dataType">decimal</property></structure>
+                <structure><property name="position">10</property><property name="name">lubricanteCosto</property><property name="nativeDataType">3</property><property name="dataType">decimal</property></structure>
+                <structure><property name="position">11</property><property name="name">llantasNuevasCosto</property><property name="nativeDataType">3</property><property name="dataType">decimal</property></structure>
+                <structure><property name="position">12</property><property name="name">llantasReencauchadasCosto</property><property name="nativeDataType">3</property><property name="dataType">decimal</property></structure>
+                <structure><property name="position">13</property><property name="name">gastosLavado</property><property name="nativeDataType">3</property><property name="dataType">decimal</property></structure>
+                <structure><property name="position">14</property><property name="name">gastosViaje</property><property name="nativeDataType">3</property><property name="dataType">decimal</property></structure>
+                <structure><property name="position">15</property><property name="name">cvv</property><property name="nativeDataType">3</property><property name="dataType">decimal</property></structure>
+                <structure><property name="position">16</property><property name="name">ckv</property><property name="nativeDataType">3</property><property name="dataType">decimal</property></structure>
+                <structure><property name="position">17</property><property name="name">consumo</property><property name="nativeDataType">3</property><property name="dataType">decimal</property></structure>
+                <structure><property name="position">18</property><property name="name">iuv</property><property name="nativeDataType">3</property><property name="dataType">decimal</property></structure>
+            </list-property>
+            <property name="dataSource">FlotasysDB</property>
+            <list-property name="resultSetHints">
+                <structure><property name="position">1</property><property name="name">placa</property><property name="dataType">string</property></structure>
+                <structure><property name="position">2</property><property name="name">codigoPatrimonio</property><property name="dataType">string</property></structure>
+                <structure><property name="position">3</property><property name="name">categoria</property><property name="dataType">string</property></structure>
+                <structure><property name="position">4</property><property name="name">mesAnio</property><property name="dataType">string</property></structure>
+                <structure><property name="position">5</property><property name="name">diasUtiles</property><property name="dataType">integer</property></structure>
+                <structure><property name="position">6</property><property name="name">km</property><property name="dataType">decimal</property></structure>
+                <structure><property name="position">7</property><property name="name">horas</property><property name="dataType">decimal</property></structure>
+                <structure><property name="position">8</property><property name="name">combustibleGalones</property><property name="dataType">decimal</property></structure>
+                <structure><property name="position">9</property><property name="name">combustibleCosto</property><property name="dataType">decimal</property></structure>
+                <structure><property name="position">10</property><property name="name">lubricanteCosto</property><property name="dataType">decimal</property></structure>
+                <structure><property name="position">11</property><property name="name">llantasNuevasCosto</property><property name="dataType">decimal</property></structure>
+                <structure><property name="position">12</property><property name="name">llantasReencauchadasCosto</property><property name="dataType">decimal</property></structure>
+                <structure><property name="position">13</property><property name="name">gastosLavado</property><property name="dataType">decimal</property></structure>
+                <structure><property name="position">14</property><property name="name">gastosViaje</property><property name="dataType">decimal</property></structure>
+                <structure><property name="position">15</property><property name="name">cvv</property><property name="dataType">decimal</property></structure>
+                <structure><property name="position">16</property><property name="name">ckv</property><property name="dataType">decimal</property></structure>
+                <structure><property name="position">17</property><property name="name">consumo</property><property name="dataType">decimal</property></structure>
+                <structure><property name="position">18</property><property name="name">iuv</property><property name="dataType">decimal</property></structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT
+    v."placa" AS placa,
+    v."codigoPatrimonio" AS "codigoPatrimonio",
+    cv."nombre" AS categoria,
+    c."mesAnio" AS "mesAnio",
+    c."diasUtiles" AS "diasUtiles",
+    c."km" AS km,
+    c."horas" AS horas,
+    c."combustibleGalones" AS "combustibleGalones",
+    c."combustibleCosto" AS "combustibleCosto",
+    c."lubricanteCosto" AS "lubricanteCosto",
+    c."llantasNuevasCosto" AS "llantasNuevasCosto",
+    c."llantasReencauchadasCosto" AS "llantasReencauchadasCosto",
+    c."gastosLavado" AS "gastosLavado",
+    c."gastosViaje" AS "gastosViaje",
+    c."cvv" AS cvv,
+    c."ckv" AS ckv,
+    c."consumo" AS consumo,
+    c."iuv" AS iuv
+FROM "CostoOperacionMensual" c
+JOIN "Vehiculo" v ON v."vehiculoId" = c."vehiculoId"
+JOIN "CategoriaVehiculo" cv ON cv."categoriaVehiculoId" = v."categoriaVehiculoId"
+WHERE c."mesAnio" = ?
+ORDER BY v."placa"]]></xml-property>
+            <list-property name="paramBindings">
+                <structure>
+                    <property name="paramName">mesAnio</property>
+                    <expression name="expression" type="javascript">params["pMesAnio"].value</expression>
+                </structure>
+            </list-property>
+        </oda-data-set>
+    </data-sets>
+
+    <styles>
+        <style name="encabezado" id="30">
+            <property name="fontWeight">bold</property>
+            <property name="backgroundColor">#1e3a5f</property>
+            <property name="color">#ffffff</property>
+            <property name="fontSize">8pt</property>
+            <property name="textAlign">center</property>
+        </style>
+        <style name="celda" id="31">
+            <property name="fontSize">8pt</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderBottomColor">#cccccc</property>
+        </style>
+    </styles>
+
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="40" orientation="landscape">
+            <page-header>
+                <label id="41">
+                    <property name="text">Control Mensual de Costo Operacional de Vehiculo — MA 122 03 01</property>
+                    <property name="fontWeight">bold</property>
+                    <property name="fontSize">14pt</property>
+                </label>
+            </page-header>
+        </simple-master-page>
+    </page-setup>
+
+    <body>
+        <label id="50">
+            <property name="text">Sistema de Administracion de Flotas — Reporte generado con Eclipse BIRT</property>
+            <property name="fontStyle">italic</property>
+            <property name="fontSize">9pt</property>
+        </label>
+
+        <table name="tablaCosto" id="60">
+            <property name="dataSet">CostoOperacionalDS</property>
+            <property name="width">100%</property>
+            <list-property name="boundDataColumns">
+                <structure><property name="name">placa</property><text-property name="displayName">placa</text-property><expression name="expression" type="javascript">dataSetRow["placa"]</expression><property name="dataType">string</property></structure>
+                <structure><property name="name">categoria</property><text-property name="displayName">categoria</text-property><expression name="expression" type="javascript">dataSetRow["categoria"]</expression><property name="dataType">string</property></structure>
+                <structure><property name="name">mesAnio</property><text-property name="displayName">mesAnio</text-property><expression name="expression" type="javascript">dataSetRow["mesAnio"]</expression><property name="dataType">string</property></structure>
+                <structure><property name="name">diasUtiles</property><text-property name="displayName">diasUtiles</text-property><expression name="expression" type="javascript">dataSetRow["diasUtiles"]</expression><property name="dataType">integer</property></structure>
+                <structure><property name="name">km</property><text-property name="displayName">km</text-property><expression name="expression" type="javascript">dataSetRow["km"]</expression><property name="dataType">decimal</property></structure>
+                <structure><property name="name">horas</property><text-property name="displayName">horas</text-property><expression name="expression" type="javascript">dataSetRow["horas"]</expression><property name="dataType">decimal</property></structure>
+                <structure><property name="name">combustibleCosto</property><text-property name="displayName">combustibleCosto</text-property><expression name="expression" type="javascript">dataSetRow["combustibleCosto"]</expression><property name="dataType">decimal</property></structure>
+                <structure><property name="name">lubricanteCosto</property><text-property name="displayName">lubricanteCosto</text-property><expression name="expression" type="javascript">dataSetRow["lubricanteCosto"]</expression><property name="dataType">decimal</property></structure>
+                <structure><property name="name">gastosLavado</property><text-property name="displayName">gastosLavado</text-property><expression name="expression" type="javascript">dataSetRow["gastosLavado"]</expression><property name="dataType">decimal</property></structure>
+                <structure><property name="name">gastosViaje</property><text-property name="displayName">gastosViaje</text-property><expression name="expression" type="javascript">dataSetRow["gastosViaje"]</expression><property name="dataType">decimal</property></structure>
+                <structure><property name="name">cvv</property><text-property name="displayName">cvv</text-property><expression name="expression" type="javascript">dataSetRow["cvv"]</expression><property name="dataType">decimal</property></structure>
+                <structure><property name="name">ckv</property><text-property name="displayName">ckv</text-property><expression name="expression" type="javascript">dataSetRow["ckv"]</expression><property name="dataType">decimal</property></structure>
+                <structure><property name="name">consumo</property><text-property name="displayName">consumo</text-property><expression name="expression" type="javascript">dataSetRow["consumo"]</expression><property name="dataType">decimal</property></structure>
+                <structure><property name="name">iuv</property><text-property name="displayName">iuv</text-property><expression name="expression" type="javascript">dataSetRow["iuv"]</expression><property name="dataType">decimal</property></structure>
+            </list-property>
+
+            <column id="61"/><column id="62"/><column id="63"/><column id="64"/><column id="65"/>
+            <column id="66"/><column id="67"/><column id="68"/><column id="69"/><column id="70"/>
+            <column id="71"/><column id="72"/><column id="73"/>
+
+            <header>
+                <row id="80">
+                    <cell id="81"><label style="encabezado"><property name="text">Placa</property></label></cell>
+                    <cell id="82"><label style="encabezado"><property name="text">Categoria</property></label></cell>
+                    <cell id="83"><label style="encabezado"><property name="text">Mes</property></label></cell>
+                    <cell id="84"><label style="encabezado"><property name="text">Dias Utiles</property></label></cell>
+                    <cell id="85"><label style="encabezado"><property name="text">Km</property></label></cell>
+                    <cell id="86"><label style="encabezado"><property name="text">Horas</property></label></cell>
+                    <cell id="87"><label style="encabezado"><property name="text">Combustible $</property></label></cell>
+                    <cell id="88"><label style="encabezado"><property name="text">Lubricante $</property></label></cell>
+                    <cell id="89"><label style="encabezado"><property name="text">Lavado $</property></label></cell>
+                    <cell id="90"><label style="encabezado"><property name="text">Viaje $</property></label></cell>
+                    <cell id="91"><label style="encabezado"><property name="text">CVV $/km</property></label></cell>
+                    <cell id="92"><label style="encabezado"><property name="text">CKV $/km</property></label></cell>
+                    <cell id="93"><label style="encabezado"><property name="text">IUV</property></label></cell>
+                </row>
+            </header>
+
+            <detail>
+                <row id="100">
+                    <cell id="101" style="celda"><data id="111"><property name="resultSetColumn">placa</property></data></cell>
+                    <cell id="102" style="celda"><data id="112"><property name="resultSetColumn">categoria</property></data></cell>
+                    <cell id="103" style="celda"><data id="113"><property name="resultSetColumn">mesAnio</property></data></cell>
+                    <cell id="104" style="celda"><data id="114"><property name="resultSetColumn">diasUtiles</property></data></cell>
+                    <cell id="105" style="celda"><data id="115"><property name="resultSetColumn">km</property></data></cell>
+                    <cell id="106" style="celda"><data id="116"><property name="resultSetColumn">horas</property></data></cell>
+                    <cell id="107" style="celda"><data id="117"><property name="resultSetColumn">combustibleCosto</property></data></cell>
+                    <cell id="108" style="celda"><data id="118"><property name="resultSetColumn">lubricanteCosto</property></data></cell>
+                    <cell id="109" style="celda"><data id="119"><property name="resultSetColumn">gastosLavado</property></data></cell>
+                    <cell id="120" style="celda"><data id="130"><property name="resultSetColumn">gastosViaje</property></data></cell>
+                    <cell id="121" style="celda"><data id="131"><property name="resultSetColumn">cvv</property></data></cell>
+                    <cell id="122" style="celda"><data id="132"><property name="resultSetColumn">ckv</property></data></cell>
+                    <cell id="123" style="celda"><data id="133"><property name="resultSetColumn">iuv</property></data></cell>
+                </row>
+            </detail>
+        </table>
+    </body>
+</report>
