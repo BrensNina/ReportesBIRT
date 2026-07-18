@@ -18,9 +18,9 @@
     <data-sources>
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="FlotasysDB" id="10">
             <property name="odaDriverClass">org.postgresql.Driver</property>
-            <property name="odaURL">jdbc:postgresql://localhost:5432/flotasys</property>
+            <property name="odaURL">jdbc:postgresql://localhost:5432/proyectoflota</property>
             <property name="odaUser">postgres</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">MTIzNA==</encrypted-property>
+            <encrypted-property name="odaPassword" encryptionID="base64">MDUwMzA0</encrypted-property>
         </oda-data-source>
     </data-sources>
 
