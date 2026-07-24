@@ -206,12 +206,12 @@ ORDER BY v."placa"]]></xml-property>
                     <cell id="84"><label><property name="style">encabezado</property><property name="text">Dias Utiles</property></label></cell>
                     <cell id="85"><label><property name="style">encabezado</property><property name="text">Km</property></label></cell>
                     <cell id="86"><label><property name="style">encabezado</property><property name="text">Horas</property></label></cell>
-                    <cell id="87"><label><property name="style">encabezado</property><property name="text">Combustible $</property></label></cell>
-                    <cell id="88"><label><property name="style">encabezado</property><property name="text">Lubricante $</property></label></cell>
-                    <cell id="89"><label><property name="style">encabezado</property><property name="text">Lavado $</property></label></cell>
-                    <cell id="90"><label><property name="style">encabezado</property><property name="text">Viaje $</property></label></cell>
-                    <cell id="91"><label><property name="style">encabezado</property><property name="text">CVV $/km</property></label></cell>
-                    <cell id="92"><label><property name="style">encabezado</property><property name="text">CKV $/km</property></label></cell>
+                    <cell id="87"><label><property name="style">encabezado</property><property name="text">Combustible (US$)</property></label></cell>
+                    <cell id="88"><label><property name="style">encabezado</property><property name="text">Lubricante (US$)</property></label></cell>
+                    <cell id="89"><label><property name="style">encabezado</property><property name="text">Lavado (US$)</property></label></cell>
+                    <cell id="90"><label><property name="style">encabezado</property><property name="text">Viaje (US$)</property></label></cell>
+                    <cell id="91"><label><property name="style">encabezado</property><property name="text">CVV (US$/Km)</property></label></cell>
+                    <cell id="92"><label><property name="style">encabezado</property><property name="text">CKV (US$/Km)</property></label></cell>
                     <cell id="93"><label><property name="style">encabezado</property><property name="text">IUV</property></label></cell>
                 </row>
             </header>
