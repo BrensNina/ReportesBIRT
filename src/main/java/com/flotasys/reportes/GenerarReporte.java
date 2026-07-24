@@ -1,6 +1,9 @@
 package com.flotasys.reportes;
 
 import org.eclipse.birt.report.engine.api.*;
+import org.eclipse.birt.report.model.api.DataSourceHandle;
+import org.eclipse.birt.report.model.api.OdaDataSourceHandle;
+import org.eclipse.birt.report.model.api.ReportDesignHandle;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -24,6 +27,7 @@ public class GenerarReporte {
 
         try {
             IReportRunnable diseno = engine.openReportDesign(rutaDiseno);
+            aplicarConexion(diseno);
             IRunAndRenderTask tarea = engine.createRunAndRenderTask(diseno);
 
             for (int i = 2; i < args.length; i++) {
@@ -44,6 +48,32 @@ public class GenerarReporte {
             System.out.println("Reporte generado: " + rutaSalida);
         } finally {
             engine.destroy();
+        }
+    }
+
+    /**
+     * Sobrescribe la conexion del origen de datos con los valores del entorno
+     * (BIRT_DB_URL, BIRT_DB_USER, BIRT_DB_PASSWORD). Asi las credenciales viven
+     * solo en el backend que invoca el reporte y no en el .rptdesign versionado.
+     */
+    private static void aplicarConexion(IReportRunnable diseno) throws Exception {
+        String url = System.getenv("BIRT_DB_URL");
+        String usuario = System.getenv("BIRT_DB_USER");
+        String password = System.getenv("BIRT_DB_PASSWORD");
+        if (url == null || url.isEmpty()) {
+            return;
+        }
+        ReportDesignHandle design = (ReportDesignHandle) diseno.getDesignHandle();
+        DataSourceHandle ds = design.findDataSource("FlotasysDB");
+        if (ds instanceof OdaDataSourceHandle) {
+            OdaDataSourceHandle oda = (OdaDataSourceHandle) ds;
+            oda.setProperty("odaURL", url);
+            if (usuario != null) {
+                oda.setProperty("odaUser", usuario);
+            }
+            if (password != null) {
+                oda.setProperty("odaPassword", password);
+            }
         }
     }
 }

@@ -18,9 +18,8 @@
     <data-sources>
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="FlotasysDB" id="10">
             <property name="odaDriverClass">org.postgresql.Driver</property>
-            <property name="odaURL">jdbc:postgresql://localhost:5432/proyectoflota</property>
+            <property name="odaURL">jdbc:postgresql://localhost:5432/flotasys</property>
             <property name="odaUser">postgres</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">MDUwMzA0</encrypted-property>
         </oda-data-source>
     </data-sources>
 
@@ -118,12 +117,41 @@ ORDER BY v."placa"]]></xml-property>
             <property name="color">#ffffff</property>
             <property name="fontSize">8pt</property>
             <property name="textAlign">center</property>
+            <property name="paddingTop">4pt</property>
+            <property name="paddingBottom">4pt</property>
+            <property name="paddingLeft">5pt</property>
+            <property name="paddingRight">5pt</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">thin</property>
+            <property name="borderTopColor">#1e3a5f</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderBottomColor">#1e3a5f</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderLeftColor">#ffffff</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderRightColor">#ffffff</property>
         </style>
         <style name="celda" id="31">
             <property name="fontSize">8pt</property>
+            <property name="paddingTop">3pt</property>
+            <property name="paddingBottom">3pt</property>
+            <property name="paddingLeft">5pt</property>
+            <property name="paddingRight">5pt</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">thin</property>
+            <property name="borderTopColor">#d0d0d0</property>
             <property name="borderBottomStyle">solid</property>
             <property name="borderBottomWidth">thin</property>
-            <property name="borderBottomColor">#cccccc</property>
+            <property name="borderBottomColor">#d0d0d0</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderLeftColor">#d0d0d0</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderRightColor">#d0d0d0</property>
         </style>
     </styles>
 
@@ -172,37 +200,37 @@ ORDER BY v."placa"]]></xml-property>
 
             <header>
                 <row id="80">
-                    <cell id="81"><label style="encabezado"><property name="text">Placa</property></label></cell>
-                    <cell id="82"><label style="encabezado"><property name="text">Categoria</property></label></cell>
-                    <cell id="83"><label style="encabezado"><property name="text">Mes</property></label></cell>
-                    <cell id="84"><label style="encabezado"><property name="text">Dias Utiles</property></label></cell>
-                    <cell id="85"><label style="encabezado"><property name="text">Km</property></label></cell>
-                    <cell id="86"><label style="encabezado"><property name="text">Horas</property></label></cell>
-                    <cell id="87"><label style="encabezado"><property name="text">Combustible $</property></label></cell>
-                    <cell id="88"><label style="encabezado"><property name="text">Lubricante $</property></label></cell>
-                    <cell id="89"><label style="encabezado"><property name="text">Lavado $</property></label></cell>
-                    <cell id="90"><label style="encabezado"><property name="text">Viaje $</property></label></cell>
-                    <cell id="91"><label style="encabezado"><property name="text">CVV $/km</property></label></cell>
-                    <cell id="92"><label style="encabezado"><property name="text">CKV $/km</property></label></cell>
-                    <cell id="93"><label style="encabezado"><property name="text">IUV</property></label></cell>
+                    <cell id="81"><label><property name="style">encabezado</property><property name="text">Placa</property></label></cell>
+                    <cell id="82"><label><property name="style">encabezado</property><property name="text">Categoria</property></label></cell>
+                    <cell id="83"><label><property name="style">encabezado</property><property name="text">Mes</property></label></cell>
+                    <cell id="84"><label><property name="style">encabezado</property><property name="text">Dias Utiles</property></label></cell>
+                    <cell id="85"><label><property name="style">encabezado</property><property name="text">Km</property></label></cell>
+                    <cell id="86"><label><property name="style">encabezado</property><property name="text">Horas</property></label></cell>
+                    <cell id="87"><label><property name="style">encabezado</property><property name="text">Combustible $</property></label></cell>
+                    <cell id="88"><label><property name="style">encabezado</property><property name="text">Lubricante $</property></label></cell>
+                    <cell id="89"><label><property name="style">encabezado</property><property name="text">Lavado $</property></label></cell>
+                    <cell id="90"><label><property name="style">encabezado</property><property name="text">Viaje $</property></label></cell>
+                    <cell id="91"><label><property name="style">encabezado</property><property name="text">CVV $/km</property></label></cell>
+                    <cell id="92"><label><property name="style">encabezado</property><property name="text">CKV $/km</property></label></cell>
+                    <cell id="93"><label><property name="style">encabezado</property><property name="text">IUV</property></label></cell>
                 </row>
             </header>
 
             <detail>
                 <row id="100">
-                    <cell id="101" style="celda"><data id="111"><property name="resultSetColumn">placa</property></data></cell>
-                    <cell id="102" style="celda"><data id="112"><property name="resultSetColumn">categoria</property></data></cell>
-                    <cell id="103" style="celda"><data id="113"><property name="resultSetColumn">mesAnio</property></data></cell>
-                    <cell id="104" style="celda"><data id="114"><property name="resultSetColumn">diasUtiles</property></data></cell>
-                    <cell id="105" style="celda"><data id="115"><property name="resultSetColumn">km</property></data></cell>
-                    <cell id="106" style="celda"><data id="116"><property name="resultSetColumn">horas</property></data></cell>
-                    <cell id="107" style="celda"><data id="117"><property name="resultSetColumn">combustibleCosto</property></data></cell>
-                    <cell id="108" style="celda"><data id="118"><property name="resultSetColumn">lubricanteCosto</property></data></cell>
-                    <cell id="109" style="celda"><data id="119"><property name="resultSetColumn">gastosLavado</property></data></cell>
-                    <cell id="120" style="celda"><data id="130"><property name="resultSetColumn">gastosViaje</property></data></cell>
-                    <cell id="121" style="celda"><data id="131"><property name="resultSetColumn">cvv</property></data></cell>
-                    <cell id="122" style="celda"><data id="132"><property name="resultSetColumn">ckv</property></data></cell>
-                    <cell id="123" style="celda"><data id="133"><property name="resultSetColumn">iuv</property></data></cell>
+                    <cell id="101"><property name="style">celda</property><data id="111"><property name="resultSetColumn">placa</property></data></cell>
+                    <cell id="102"><property name="style">celda</property><data id="112"><property name="resultSetColumn">categoria</property></data></cell>
+                    <cell id="103"><property name="style">celda</property><data id="113"><property name="resultSetColumn">mesAnio</property></data></cell>
+                    <cell id="104"><property name="style">celda</property><data id="114"><property name="resultSetColumn">diasUtiles</property></data></cell>
+                    <cell id="105"><property name="style">celda</property><data id="115"><property name="resultSetColumn">km</property></data></cell>
+                    <cell id="106"><property name="style">celda</property><data id="116"><property name="resultSetColumn">horas</property></data></cell>
+                    <cell id="107"><property name="style">celda</property><data id="117"><property name="resultSetColumn">combustibleCosto</property></data></cell>
+                    <cell id="108"><property name="style">celda</property><data id="118"><property name="resultSetColumn">lubricanteCosto</property></data></cell>
+                    <cell id="109"><property name="style">celda</property><data id="119"><property name="resultSetColumn">gastosLavado</property></data></cell>
+                    <cell id="120"><property name="style">celda</property><data id="130"><property name="resultSetColumn">gastosViaje</property></data></cell>
+                    <cell id="121"><property name="style">celda</property><data id="131"><property name="resultSetColumn">cvv</property></data></cell>
+                    <cell id="122"><property name="style">celda</property><data id="132"><property name="resultSetColumn">ckv</property></data></cell>
+                    <cell id="123"><property name="style">celda</property><data id="133"><property name="resultSetColumn">iuv</property></data></cell>
                 </row>
             </detail>
         </table>
