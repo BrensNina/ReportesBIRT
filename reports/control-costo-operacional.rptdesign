@@ -96,9 +96,9 @@
     c."ckv" AS ckv,
     c."consumo" AS consumo,
     c."iuv" AS iuv
-FROM "CostoOperacionMensual" c
-JOIN "Vehiculo" v ON v."vehiculoId" = c."vehiculoId"
-JOIN "CategoriaVehiculo" cv ON cv."categoriaVehiculoId" = v."categoriaVehiculoId"
+FROM "costos"."CostoOperacionMensual" c
+JOIN "operacion"."Vehiculo" v ON v."vehiculoId" = c."vehiculoId"
+JOIN "operacion"."CategoriaVehiculo" cv ON cv."categoriaVehiculoId" = v."categoriaVehiculoId"
 WHERE c."mesAnio" = ?
 ORDER BY v."placa"]]></xml-property>
             <list-property name="paramBindings">
